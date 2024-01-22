@@ -106,6 +106,13 @@ const handleFilter=()=>{
   setFilter([...data.sort((a,b)=>b.price-a.price)])
 }
 
+const handleFilterr = () => {
+  setFilter([...data.sort((a, b) => a.name.localeCompare(b.name))]);
+}
+
+const handleFilterrr = () => {
+  setFilter([...data.sort((a, b) => b.name.localeCompare(a.name))]);
+}
 const searchHandler=(searchValue)=>{
   if(searchValue){
     setFilter([...data.filter(item=>item.name.toLowerCase().trim().includes(searchValue.trim().toLowerCase()))])
@@ -115,7 +122,8 @@ const searchHandler=(searchValue)=>{
 }
 
   const datas={
-    data,setData,loading,setLoading,error,setError,filter,setFilter,wishlist,setWishlist,basket,setBasket,counter,setCounter,handleDec,handleInc,handleDelete,handleFilter,searchHandler,addBasket,addWish,removeWish,deleteHandler
+    data,setData,loading,setLoading,error,setError,filter,setFilter,wishlist,setWishlist,basket,setBasket,counter,setCounter,handleDec,handleInc,handleDelete,handleFilter,searchHandler,addBasket,addWish,removeWish,deleteHandler,handleFilterr,
+    handleFilterrr
   }
   return (
     <MainContext.Provider value={datas}>
